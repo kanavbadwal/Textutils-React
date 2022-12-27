@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./App.css";
 import Alert from "./components/Alert";
-// import About from "./components/About";
+import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   /* const [mode, setMode] = useState("light");
@@ -27,7 +27,8 @@ function App() {
     if (bgMode === "light") {
       setBgMode("dark");
       setTextMode("white");
-      setBgColor("#45536c");
+      setBgColor("#30536c");
+      // setBgColor("#45536c");
       document.body.style.backgroundColor = "#30536c";
       showAlert("Dark Mode has been enabled.", "success");
     } else {
@@ -62,45 +63,57 @@ function App() {
 
   return (
     <>
-      {/* <Router> */}
-      {/* <Navbar /> */}
-      {/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
-      {/* <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} /> */}
-      <Navbar
-        title="TextUtils"
-        bgMode={bgMode}
-        textMode={textMode}
-        toggleMode={toggleMode}
-      />
-      <Alert alert={alert} />
-      <div className="container my-3">
-        {/* <Routes> */}
-        {/* 
+      <Router>
+        {/* <Navbar /> */}
+        {/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
+        {/* <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} /> */}
+        <Navbar
+          title="TextUtils"
+          bgMode={bgMode}
+          textMode={textMode}
+          toggleMode={toggleMode}
+        />
+        <Alert alert={alert} />
+        <div className="container my-3">
+          <Routes>
+            {/* 
             exact is used to avoid using of component of one page on another like,
             /users --> component 1
             /users/home --> component 2
             React will use component 1 even if you go one /home page because it partially matches the link.
             */}
 
-        {/* <Route exact path="/about" element={<About />}></Route>
             <Route
               exact
               path="/"
-              element={ */}
-        <TextForm
-          heading="Enter the text to analyse below."
-          bgMode={bgMode}
-          textMode={textMode}
-          bgColor={bgColor}
-          toggleMode={toggleMode}
-          showAlert={showAlert}
-        />
-        {/* }
+              element={
+                <TextForm
+                  heading="Try TextUtils - Word Counter, Character Counter, Remove extra spaces"
+                  bgMode={bgMode}
+                  textMode={textMode}
+                  bgColor={bgColor}
+                  toggleMode={toggleMode}
+                  showAlert={showAlert}
+                />
+              }
+            ></Route>
+
+            <Route
+              exact
+              path="/about"
+              element={
+                <About
+                  bgMode={bgMode}
+                  textMode={textMode}
+                  bgColor={bgColor}
+                  toggleMode={toggleMode}
+                />
+              }
             ></Route>
           </Routes>
-          <About /> */}
-      </div>
-      {/* </Router> */}
+          {/* <About /> */}
+        </div>
+      </Router>
     </>
   );
 }

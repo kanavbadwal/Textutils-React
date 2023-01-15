@@ -24,7 +24,6 @@ export default function TextForm(props) {
 
   const handleCopy = () => {
     navigator.clipboard.writeText(text);
-
     props.showAlert("Copied to clipboard!", "success");
   };
 
@@ -105,7 +104,7 @@ export default function TextForm(props) {
       <div className="container my-3" style={{ color: props.textMode }}>
         <h2>Text Summary</h2>
         <p>
-          <b>{text.split(" ").filter((word) => word !== "").length} </b> words
+          <b>{text.split(/\s+/).filter((word) => word !== "").length} </b> words
           and <b>{text.trim().length} </b> Character
         </p>
         <p>

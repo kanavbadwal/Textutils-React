@@ -6,36 +6,12 @@ export default function About(props) {
     backgroundColor: props.bgMode === "dark" ? "#45536c" : "white",
   };
 
-  // const [myStyle, setMyStyle] = useState({
-  //   color: "black",
-  //   backgroundColor: "white",
-  // });
-
-  // const [btnText, setBtnText] = useState("Enable Dark Mode");
-
-  // const toggleStyle = () => {
-  //   if (myStyle.color === "white") {
-  //     setMyStyle({
-  //       color: "black",
-  //       backgroundColor: "white",
-  //     });
-  //     setBtnText("Enable Dark Mode");
-  //   } else {
-  //     setMyStyle({
-  //       color: "white",
-  //       backgroundColor: "black",
-  //       //border: "1px solid white",
-  //     });
-  //     setBtnText("Enable Light Mode");
-  //   }
-  // };
-
   return (
     <div
-      className="container"
+      className="container w-50 "
       style={{ color: props.bgMode === "dark" ? "white" : "#45536c" }}
     >
-      <h1 className="my-2 mx-2">About Us </h1>
+      <h1 className="my-2 mx-2 d-flex justify-content-center">About Us </h1>
       <div className="accordion" style={myStyle} id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingOne">

@@ -7,17 +7,6 @@ import TextForm from "./components/TextForm";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
-  /* const [mode, setMode] = useState("light");
-  const toggleMode = () => {
-    if (mode === "light") {
-      setMode("dark");
-      document.body.style.backgroundColor = "dimgray";
-    } else {
-      setMode("light");
-      document.body.style.backgroundColor = "white";
-    }
-  }; */
-
   // Website Dark Mode ------------------
   const [bgMode, setBgMode] = useState("light");
   const [bgColor, setBgColor] = useState("white");
@@ -28,7 +17,7 @@ function App() {
       setBgMode("dark");
       setTextMode("white");
       setBgColor("#30536c");
-      // setBgColor("#45536c");
+
       document.body.style.backgroundColor = "#30536c";
       showAlert("Dark Mode has been enabled.", "success");
     } else {
@@ -74,7 +63,7 @@ function App() {
           toggleMode={toggleMode}
         />
         <Alert alert={alert} />
-        <div className="container my-3">
+        <div className="container my-3 w-75 ">
           <Routes>
             {/* 
             exact is used to avoid using of component of one page on another like,
@@ -88,7 +77,7 @@ function App() {
               path="/"
               element={
                 <TextForm
-                  heading="Try TextUtils - Word Counter, Character Counter, Remove extra spaces"
+                  heading="TextUtils - Word Counter, Character Counter, Remove extra spaces"
                   bgMode={bgMode}
                   textMode={textMode}
                   bgColor={bgColor}
@@ -111,7 +100,6 @@ function App() {
               }
             ></Route>
           </Routes>
-          {/* <About /> */}
         </div>
       </Router>
     </>
